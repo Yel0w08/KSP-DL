@@ -1,11 +1,17 @@
-using Microsoft.VisualBasic.ApplicationServices;
+using Microsoft.VisualBasic;
+using System;
+using System.IO;
+using System.Net.Http;
+using System.Windows.Forms;
 
 namespace KSP_DL
 {
-
     public partial class UncryptKey : Form
     {
-    public string pathToDonwloadFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "TMP_KSP-DL");
+        public string pathToDownloadFolder = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+            "TMP_KSP-DL"
+        );
 
         public UncryptKey()
         {
@@ -49,15 +55,11 @@ namespace KSP_DL
                 return false;
             }
 
-
             switch (selectedFileType)
             {
                 case "SFX":
-                    DonwloadKSP(selectedVersion, selectedFileType);
-                    break;
-
                 case ".7z":
-                    DonwloadKSP(selectedVersion, selectedFileType);
+                    DownloadKsp(selectedVersion, selectedFileType);
                     break;
 
                 default:
@@ -67,36 +69,59 @@ namespace KSP_DL
 
             return true;
         }
-        private void DonwloadKSP(string version, string fileType)
-        {
-            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            DialogResult dr = MessageBox.Show($"Select temporary folder ?, default is C:\\Users\\{userName}\\KSP-DL_tmp",
-                                  "Select custom path", MessageBoxButtons.YesNo);
-            switch (dr)
-            {
-                case DialogResult.Yes:
-                    PathToDonload.ShowDialog();
-                    break;
-                case DialogResult.No:
-                    break;
-            }
 
-            var downloadPath = PathToDonload.SelectedPath;
-            LockEveryting();
-        }
-        private void LockEveryting()
+        private void DownloadKsp(string version, string fileType)
         {
-      
-                GetButton.Enabled = false;
-                GetButton.Text = "Processing...";
-                KSP_Version.Enabled = false;
-                TypeOfFile.Enabled = false;
-                CDKeyInput.Enabled = false;
+            LockControls();
+            string defaultPath = $"C:\\Users\\{Environment.UserName}\\KSP-DL_tmp";
+            string TMP_Path = defaultPath;
+
+          /*  DialogResult result = MessageBox.Show(
+                $"Select temporary folder? Default is {defaultPath}",
+                "Select custom path",
+                MessageBoxButtons.YesNo
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                PathToDonload.ShowDialog();
+                TMP_Path = PathToDonload.SelectedPath;
+            }
+           
+            MessageBox.Show($"Downloading to {TMP_Path}");*/
+            GetButton.Font = new System.Drawing.Font(GetButton.Font.FontFamily, 8);
+            if (version == "Kerbal Space Program 1.12.5.3190 (lastest)")
+            {
+
+                switch (fileType)
+                {
+                    case "SFX":
+                        GetButton.Text = $"Downloading {version} {fileType}";
+                      
+                        break;
+                    case ".7z":
+                        GetButton.Text = $"Downloading {version} {fileType}";
+                        break;
+
+
+
+                }
+
+            }
+            else if (version == "") { }
+        }
+
+        private void LockControls()
+        {
+            GetButton.Enabled = false;
+            GetButton.Text = "Processing...";
+            KSP_Version.Enabled = false;
+            TypeOfFile.Enabled = false;
+            CDKeyInput.Enabled = false;
         }
 
         private void KSPVersionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void FileTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,7 +138,6 @@ namespace KSP_DL
 
         private void progressBar_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

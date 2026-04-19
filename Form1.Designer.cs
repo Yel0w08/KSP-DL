@@ -2,15 +2,8 @@ namespace KSP_DL
 {
     partial class UncryptKey
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@ namespace KSP_DL
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UncryptKey));
@@ -33,13 +22,14 @@ namespace KSP_DL
             KSP_Version = new ComboBox();
             TypeOfFile = new ComboBox();
             Warning = new Label();
-            progressBar = new ProgressBar();
+            ProgressBar = new ProgressBar();
             CDKeyInput = new TextBox();
             PathToDonload = new FolderBrowserDialog();
             SuspendLayout();
             // 
             // GetButton
             // 
+            GetButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             GetButton.Font = new Font("Segoe UI", 15F);
             GetButton.Location = new Point(12, 393);
             GetButton.Name = "GetButton";
@@ -78,22 +68,22 @@ namespace KSP_DL
             Warning.ForeColor = Color.Red;
             Warning.Location = new Point(12, 9);
             Warning.Name = "Warning";
-            Warning.Size = new Size(251, 15);
+            Warning.Size = new Size(248, 15);
             Warning.TabIndex = 4;
-            Warning.Text = "Warning : you need a key to uncrypt the game";
+            Warning.Text = "Warning: you need a key to uncrypt the game";
             Warning.Click += WarningLabel_Click;
             // 
-            // progressBar
+            // ProgressBar
             // 
-            progressBar.ForeColor = Color.FromArgb(255, 128, 0);
-            progressBar.Location = new Point(12, 335);
-            progressBar.Maximum = 1000;
-            progressBar.Name = "progressBar";
-            progressBar.Size = new Size(361, 23);
-            progressBar.Step = 100;
-            progressBar.TabIndex = 5;
-            progressBar.UseWaitCursor = true;
-            progressBar.Click += progressBar_Click;
+            ProgressBar.ForeColor = Color.FromArgb(255, 128, 0);
+            ProgressBar.Location = new Point(12, 335);
+            ProgressBar.Maximum = 1000;
+            ProgressBar.Name = "ProgressBar";
+            ProgressBar.Size = new Size(361, 23);
+            ProgressBar.Step = 100;
+            ProgressBar.TabIndex = 5;
+            ProgressBar.UseWaitCursor = true;
+            ProgressBar.Click += progressBar_Click;
             // 
             // CDKeyInput
             // 
@@ -112,13 +102,15 @@ namespace KSP_DL
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(384, 461);
             Controls.Add(CDKeyInput);
-            Controls.Add(progressBar);
+            Controls.Add(ProgressBar);
             Controls.Add(Warning);
             Controls.Add(TypeOfFile);
             Controls.Add(KSP_Version);
             Controls.Add(GetButton);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "UncryptKey";
             Text = "KSP-DL";
@@ -133,7 +125,7 @@ namespace KSP_DL
         private ComboBox KSP_Version;
         private ComboBox TypeOfFile;
         private Label Warning;
-        private ProgressBar progressBar;
+        private ProgressBar ProgressBar;
         private TextBox CDKeyInput;
         private FolderBrowserDialog PathToDonload;
     }
