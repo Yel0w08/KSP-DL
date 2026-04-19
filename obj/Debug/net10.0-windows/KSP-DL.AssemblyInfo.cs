@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KSP-DL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+883f9286e9b4f08bb70111f6287c722ba529fdf4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4197462fd00d7a35612848f67180d0ec04f3fef5")]
 [assembly: System.Reflection.AssemblyProductAttribute("KSP-DL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KSP-DL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

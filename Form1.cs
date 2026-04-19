@@ -97,10 +97,11 @@ namespace KSP_DL
                 {
                     case "SFX":
                         GetButton.Text = $"Downloading {version} {fileType}";
-                      
+              
                         break;
                     case ".7z":
                         GetButton.Text = $"Downloading {version} {fileType}";
+        
                         break;
 
 
