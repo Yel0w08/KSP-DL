@@ -15,3 +15,4 @@ D:\Dev\KSP-DL\obj\Debug\net10.0-windows\KSP-DL.pdb
 D:\Dev\KSP-DL\obj\Debug\net10.0-windows\KSP-DL.genruntimeconfig.cache
 D:\Dev\KSP-DL\obj\Debug\net10.0-windows\ref\KSP-DL.dll
 D:\Dev\KSP-DL\obj\Debug\net10.0-windows\KSP_DL.UncryptKey.resources
+D:\Dev\KSP-DL\obj\Debug\net10.0-windows\KSP_DL.Properties.Resources.resources

@@ -17,15 +17,27 @@ namespace KSP_DL
 
         private void InitializeComponent()
         {
+            Label Warning;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UncryptKey));
             GetButton = new Button();
             KSP_Version = new ComboBox();
             TypeOfFile = new ComboBox();
-            Warning = new Label();
             ProgressBar = new ProgressBar();
             CDKeyInput = new TextBox();
             PathToDonload = new FolderBrowserDialog();
+            Warning = new Label();
             SuspendLayout();
+            // 
+            // Warning
+            // 
+            Warning.AutoSize = true;
+            Warning.ForeColor = Color.Red;
+            Warning.Location = new Point(12, 9);
+            Warning.Name = "Warning";
+            Warning.Size = new Size(248, 15);
+            Warning.TabIndex = 4;
+            Warning.Text = "Warning: you need a key to uncrypt the game";
+            Warning.Click += WarningLabel_Click;
             // 
             // GetButton
             // 
@@ -55,32 +67,20 @@ namespace KSP_DL
             // TypeOfFile
             // 
             TypeOfFile.FormattingEnabled = true;
-            TypeOfFile.Items.AddRange(new object[] { "SFX", ".7z" });
+            TypeOfFile.Items.AddRange(new object[] { "SFX", ".7z", "TMP" });
             TypeOfFile.Location = new Point(322, 364);
             TypeOfFile.Name = "TypeOfFile";
             TypeOfFile.Size = new Size(50, 23);
             TypeOfFile.TabIndex = 3;
             TypeOfFile.SelectedIndexChanged += FileTypeComboBox_SelectedIndexChanged;
             // 
-            // Warning
-            // 
-            Warning.AutoSize = true;
-            Warning.ForeColor = Color.Red;
-            Warning.Location = new Point(12, 9);
-            Warning.Name = "Warning";
-            Warning.Size = new Size(248, 15);
-            Warning.TabIndex = 4;
-            Warning.Text = "Warning: you need a key to uncrypt the game";
-            Warning.Click += WarningLabel_Click;
-            // 
             // ProgressBar
             // 
+            ProgressBar.BackColor = Color.FromArgb(255, 128, 0);
             ProgressBar.ForeColor = Color.FromArgb(255, 128, 0);
             ProgressBar.Location = new Point(12, 335);
-            ProgressBar.Maximum = 1000;
             ProgressBar.Name = "ProgressBar";
             ProgressBar.Size = new Size(361, 23);
-            ProgressBar.Step = 100;
             ProgressBar.TabIndex = 5;
             ProgressBar.UseWaitCursor = true;
             ProgressBar.Click += progressBar_Click;

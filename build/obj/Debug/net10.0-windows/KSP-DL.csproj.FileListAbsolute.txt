@@ -1,0 +1,7 @@
+D:\Dev\KSP-DL\build\obj\Debug\net10.0-windows\KSP_DL.UncryptKey.resources
+D:\Dev\KSP-DL\build\obj\Debug\net10.0-windows\KSP-DL.csproj.GenerateResource.cache
+D:\Dev\KSP-DL\build\obj\Debug\net10.0-windows\KSP-DL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev\KSP-DL\build\obj\Debug\net10.0-windows\KSP-DL.AssemblyInfoInputs.cache
+D:\Dev\KSP-DL\build\obj\Debug\net10.0-windows\KSP-DL.AssemblyInfo.cs
+D:\Dev\KSP-DL\build\obj\Debug\net10.0-windows\KSP-DL.csproj.CoreCompileInputs.cache
+D:\Dev\KSP-DL\build\obj\Debug\net10.0-windows\KSP-DL.sourcelink.json
