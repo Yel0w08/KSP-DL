@@ -17,27 +17,36 @@ namespace KSP_DL
 
         private void InitializeComponent()
         {
-            Label Warning;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UncryptKey));
+            WarningLabel = new Label();
+            TmpWarning = new Label();
             GetButton = new Button();
             KSP_Version = new ComboBox();
             TypeOfFile = new ComboBox();
             ProgressBar = new ProgressBar();
             CDKeyInput = new TextBox();
             PathToDonload = new FolderBrowserDialog();
-            Warning = new Label();
             SuspendLayout();
             // 
-            // Warning
+            // WarningLabel
             // 
-            Warning.AutoSize = true;
-            Warning.ForeColor = Color.Red;
-            Warning.Location = new Point(12, 9);
-            Warning.Name = "Warning";
-            Warning.Size = new Size(248, 15);
-            Warning.TabIndex = 4;
-            Warning.Text = "Warning: you need a key to uncrypt the game";
-            Warning.Click += WarningLabel_Click;
+            WarningLabel.AutoSize = true;
+            WarningLabel.ForeColor = Color.Red;
+            WarningLabel.Location = new Point(12, 9);
+            WarningLabel.Name = "WarningLabel";
+            WarningLabel.Size = new Size(248, 15);
+            WarningLabel.TabIndex = 4;
+            WarningLabel.Text = "Warning: you need a key to uncrypt the game";
+            WarningLabel.Click += WarningLabel_Click_1;
+            // 
+            // TmpWarning
+            // 
+            TmpWarning.AutoSize = true;
+            TmpWarning.ForeColor = Color.DarkOrange;
+            TmpWarning.Location = new Point(12, 26);
+            TmpWarning.Name = "TmpWarning";
+            TmpWarning.Size = new Size(0, 15);
+            TmpWarning.TabIndex = 4;
             // 
             // GetButton
             // 
@@ -78,9 +87,9 @@ namespace KSP_DL
             // 
             ProgressBar.BackColor = Color.FromArgb(255, 128, 0);
             ProgressBar.ForeColor = Color.FromArgb(255, 128, 0);
-            ProgressBar.Location = new Point(12, 335);
+            ProgressBar.Location = new Point(13, 301);
             ProgressBar.Name = "ProgressBar";
-            ProgressBar.Size = new Size(361, 23);
+            ProgressBar.Size = new Size(361, 28);
             ProgressBar.TabIndex = 5;
             ProgressBar.UseWaitCursor = true;
             ProgressBar.Click += progressBar_Click;
@@ -91,7 +100,7 @@ namespace KSP_DL
             CDKeyInput.Cursor = Cursors.IBeam;
             CDKeyInput.ForeColor = Color.Black;
             CDKeyInput.HideSelection = false;
-            CDKeyInput.Location = new Point(13, 38);
+            CDKeyInput.Location = new Point(12, 335);
             CDKeyInput.MaxLength = 32;
             CDKeyInput.Name = "CDKeyInput";
             CDKeyInput.Size = new Size(360, 23);
@@ -106,7 +115,8 @@ namespace KSP_DL
             ClientSize = new Size(384, 461);
             Controls.Add(CDKeyInput);
             Controls.Add(ProgressBar);
-            Controls.Add(Warning);
+            Controls.Add(WarningLabel);
+            Controls.Add(TmpWarning);
             Controls.Add(TypeOfFile);
             Controls.Add(KSP_Version);
             Controls.Add(GetButton);
@@ -124,7 +134,8 @@ namespace KSP_DL
         private Button GetButton;
         private ComboBox KSP_Version;
         private ComboBox TypeOfFile;
-        private Label Warning;
+        private Label WarningLabel;
+        private Label TmpWarning;
         private ProgressBar ProgressBar;
         private TextBox CDKeyInput;
         private FolderBrowserDialog PathToDonload;

@@ -308,15 +308,15 @@ namespace KSP_DL
 
         private void UpdateStartupWarning()
         {
+            SetKeyWarningText("Warning: you need a key to uncrypt the game");
+
             if (HasTemporaryFiles())
             {
-                Warning.ForeColor = System.Drawing.Color.DarkOrange;
-                Warning.Text = $"Warning: temporary files were detected in {Path.GetFileName(defaultDownloadFolder)}";
+                SetTmpWarningText("Warning: temporary files were detected.");
                 return;
             }
 
-            Warning.ForeColor = System.Drawing.Color.Red;
-            Warning.Text = "Warning: you need a key to uncrypt the game";
+            SetTmpWarningText(string.Empty);
         }
 
         private bool HasTemporaryFiles()
@@ -327,6 +327,29 @@ namespace KSP_DL
             }
 
             return Directory.EnumerateFileSystemEntries(defaultDownloadFolder).Any();
+        }
+
+        private void SetKeyWarningText(string text)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(() => SetKeyWarningText(text));
+                return;
+            }
+
+            WarningLabel.ForeColor = System.Drawing.Color.Red;
+            WarningLabel.Text = text;
+        }
+
+        private void SetTmpWarningText(string text)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(() => SetTmpWarningText(text));
+                return;
+            }
+
+            TmpWarning.Text = text;
         }
 
         private async void UncryptKey_FormClosing(object? sender, FormClosingEventArgs e)
@@ -355,9 +378,14 @@ namespace KSP_DL
                 if (Directory.Exists(defaultDownloadFolder))
                 {
                     Directory.Delete(defaultDownloadFolder, true);
+                    
                 }
-                SetProgress(ProgressBar.Maximum);
-                TypeOfFile.Text = "SFX";
+               // Application.Restart();
+                //Application.Exit();
+                //System.Diagnostics.Process.Start("KSP-DL.exe");
+
+                //Environment.Exit(0);
+                //fuk ristart
             }
             catch
             {
@@ -489,14 +517,14 @@ namespace KSP_DL
         {
             if (TypeOfFile.SelectedItem?.ToString() == "TMP")
             {
-          
+
                 GetButton.Text = "Clear";
-   
+         
 
             }
             else
             {
-         
+
             }
         }
 
@@ -513,6 +541,11 @@ namespace KSP_DL
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WarningLabel_Click_1(object sender, EventArgs e)
         {
 
         }
